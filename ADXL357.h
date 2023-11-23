@@ -11,40 +11,41 @@
 enum class ADXL357_REGISTERS : uint8_t{
     DEVID_AD  = 0x00,
     DEVID_MST = 0x01,
-    PARTID    = 0x02,           // Device ID (0xED) 
-    REVID     = 0x03,            // Mask revision (0x01)
+    PARTID    = 0x02, /*!< Device ID (0xED)     */ 
+    REVID     = 0x03, /*!< Mask revision (0x01) */ 
 
-    STATUS    = 0x04,          // This register includes bits that 
-                                            // describe the various conditions 
-                                            // of the ADXL357. 
-    FIFO_ENTRIES = 0x05,     // Number of data samples stored in the FIFO 
-    TEMP2        = 0x06,            // Uncalibrated temperature data 
+    STATUS    = 0x04, /*!< This register includes bits that 
+                           describe the various conditions 
+                           of the ADXL357.                   */
+
+    FIFO_ENTRIES = 0x05, /*!< Number of data samples stored in the FIFO  */
+    TEMP2        = 0x06, /*!< Uncalibrated temperature data              */
     TEMP1        = 0x07,
 
-    XDATA3       = 0x08,           // X-axis data
+    XDATA3       = 0x08, /*!< X-axis data */
     XDATA2       = 0x09,
     XDATA1       = 0x0A,
 
-    YDATA3       = 0x0B,           // Y-axis data
+    YDATA3       = 0x0B, /*!< Y-axis data */
     YDATA2       = 0x0C,
     YDATA1       = 0x0D,
 
-    ZDATA3       = 0x0E,           // Z-axis data
+    ZDATA3       = 0x0E, /*!< Z-axis data */
     ZDATA2       = 0x0F,
     ZDATA1       = 0x10,
 
     FIFO_DATA    = 0x11,
 
-    OFFSET_X_H   = 0x1E,      // Offset added to x-axis data after all 
-                                            // other signal processing.
+    OFFSET_X_H   = 0x1E, /*!< Offset added to x-axis data after all
+                              other signal processing.              */
     OFFSET_X_L   = 0x1F,
 
-    OFFSET_Y_H   = 0x20,       // Offset added to y-axis data after all 
-                                            // other signal processing.
+    OFFSET_Y_H   = 0x20, /*!< Offset added to y-axis data after all 
+                              other signal processing.              */
     OFFSET_Y_L   = 0x21,
 
-    OFFSET_Z_H   = 0x22,       // Offset added to z-axis data after all 
-                                            // other signal processing.
+    OFFSET_Z_H   = 0x22, /*!< Offset added to z-axis data after all 
+                              other signal processing.              */
     OFFSET_Z_L   = 0x23,
 
     ACT_EN        = 0x24,
@@ -52,10 +53,10 @@ enum class ADXL357_REGISTERS : uint8_t{
     ACT_THRESH_L  = 0x26,
     ACT_COUNT     = 0x27,
 
-    FILTER        = 0x28,           // Use this register to specify parameters for the internal high-pass and low-pass filters. 
-    FIFO_SAMPLES  = 0x29,     // Watermark number of samples stored in the FIFO that triggers a FIFO_FULL condition. Values range from 1 to 96. 
+    FILTER        = 0x28, /*!< Use this register to specify parameters for the internal high-pass and low-pass filters.                         */
+    FIFO_SAMPLES  = 0x29, /*!< Watermark number of samples stored in the FIFO that triggers a FIFO_FULL condition. Values range from 1 to 96.   */
     INT_MAP       = 0x2A,
-    SYNC          = 0x2B,           // Use this register to control the external timing triggers
+    SYNC          = 0x2B, /*!< Use this register to control the external timing triggers                                                        */
     RANGE         = 0x2C,
     POWER_CTL     = 0x2D,
     SELF_TEST     = 0x2E,
@@ -87,8 +88,17 @@ enum class adxl357_power_ctl_t : uint8_t{
     Standby_Standby =        0b00000001,
 };
 
+
+//!  A ADXL357 class. 
+/*!
+    For ADXL357 Accelerometer in I2C bus;
+*/
 class ADXL357 {
 public:
+    //! An scale scture.
+    /*! To store scale factors in different ranges.
+        \sa Scale
+    */
     struct scale_t{
         double _10G;
         double _20G;
@@ -96,6 +106,10 @@ public:
     };
 
 private:
+    //! An scale_t static member.
+    /*! Stored scale factors in different ranges.
+        \sa scale_t
+    */
     static scale_t Scale;
 
 public:
@@ -121,6 +135,12 @@ public:
     int32_t getX();
     int32_t getY();
     int32_t getZ();
+    //! Get Acceleration on X,Y,Z axis.
+    /*! 
+        \param x the output of x.
+        \param y the output of y.
+        \param z the output of z.
+    */
     bool    getXYZ(int32_t &x, int32_t &y, int32_t &z);
 
 protected:
