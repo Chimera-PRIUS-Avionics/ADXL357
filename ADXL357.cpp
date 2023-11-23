@@ -67,7 +67,7 @@ bool ADXL357::setRange(adxl357_range_t range){
 
     _range = range;
 
-    writeRegister(ADXL357_REG_RANGE, 
+    writeRegister(ADXL357_REGISTERS::RANGE, 
     static_cast<uint8_t>(_i2c_speed) |
     static_cast<uint8_t>(_int_pol) |
     static_cast<uint8_t>(_range));
@@ -86,7 +86,7 @@ void ADXL357::setMode(bool isMeasurmentMode){
         _standby = adxl357_power_ctl_t::Standby_Standby;
     }
 
-    writeRegister(ADXL357_REG_POWER_CTL, 
+    writeRegister(ADXL357_REGISTERS::POWER_CTL, 
     static_cast<uint8_t>(_drdy_off) |
     static_cast<uint8_t>(_temp_off) | 
     static_cast<uint8_t>(_standby));
@@ -94,41 +94,41 @@ void ADXL357::setMode(bool isMeasurmentMode){
 
 
 uint8_t ADXL357::getAnalogDeviceID(){
-    return readRegister(ADXL357_REG_DEVID_AD);
+    return readRegister(ADXL357_REGISTERS::DEVID_AD);
 }
 
 
 uint8_t ADXL357::getDeviceMEMSID(){
-    return readRegister(ADXL357_REG_DEVID_MST);
+    return readRegister(ADXL357_REGISTERS::DEVID_MST);
 }
 
 uint8_t ADXL357::getDeviceID(){
-    return readRegister(ADXL357_REG_PARTID);
+    return readRegister(ADXL357_REGISTERS::PARTID);
 }
 
 uint8_t ADXL357::getMaskRevision(){
-    return readRegister(ADXL357_REG_REVID);
+    return readRegister(ADXL357_REGISTERS::REVID);
 }
 
-void ADXL357::writeRegister(uint8_t reg, uint8_t value) {
+void ADXL357::writeRegister(const ADXL357_REGISTERS& reg, uint8_t value) {
     Wire.beginTransmission(this->_i2caddr);
-    Wire.write(reg);
+    Wire.write(static_cast<uint8_t>(reg));
     Wire.write(value);
     Wire.endTransmission();
 }
 
-uint8_t ADXL357::readRegister(uint8_t reg) {
+uint8_t ADXL357::readRegister(const ADXL357_REGISTERS& reg) {
     Wire.beginTransmission(this->_i2caddr);
-    Wire.write(reg);
+    Wire.write(static_cast<uint8_t>(reg));
     Wire.endTransmission();
     Wire.requestFrom(this->_i2caddr, uint8_t(1));
     uint8_t val = Wire.read();
   return val;
 }
 
-int32_t ADXL357::read20(uint8_t reg) {
+int32_t ADXL357::read20(const ADXL357_REGISTERS& reg) {
     Wire.beginTransmission(this->_i2caddr);
-    Wire.write(reg);
+    Wire.write(static_cast<uint8_t>(reg));
     Wire.endTransmission();
     Wire.requestFrom(this->_i2caddr, uint8_t(3));
     uint8_t data3 = Wire.read();
@@ -146,15 +146,15 @@ int32_t ADXL357::read20(uint8_t reg) {
 
 
 int32_t ADXL357::getX() { 
-    return read20(ADXL357_REG_XDATA3); 
+    return read20(ADXL357_REGISTERS::XDATA3); 
 }
 
 int32_t ADXL357::getY() {
-    return read20(ADXL357_REG_YDATA3);
+    return read20(ADXL357_REGISTERS::YDATA3);
 }
 
 int32_t ADXL357::getZ() {
-    return read20(ADXL357_REG_ZDATA3);
+    return read20(ADXL357_REGISTERS::ZDATA3);
 }
 
 bool ADXL357::getXYZ(int32_t &x, int32_t &y, int32_t &z) {

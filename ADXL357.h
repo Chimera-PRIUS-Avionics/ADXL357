@@ -1,4 +1,4 @@
-// This is a library for the ADXL 357 Sensor.
+// This is a library for the ADXL 357 Sensor.0x03
 //
 //    Author: Yuzhou Shen
 //    File: ADXL357.h
@@ -8,59 +8,59 @@
 
 #include "Arduino.h"
 
-// Registers
-#define ADXL357_REG_DEVID_AD (0x00)         // Analog Devices ID (0xAD) 
-#define ADXL357_REG_DEVID_MST (0x01)        // Analog Devices MEMS ID (0x1D)
+enum class ADXL357_REGISTERS : uint8_t{
+    DEVID_AD  = 0x00,
+    DEVID_MST = 0x01,
+    PARTID    = 0x02,           // Device ID (0xED) 
+    REVID     = 0x03,            // Mask revision (0x01)
 
-#define ADXL357_REG_PARTID (0x02)           // Device ID (0xED) 
-#define ADXL357_REG_REVID (0x03)            // Mask revision (0x01)
-
-#define ADXL357_REG_STATUS (0x04)           // This register includes bits that 
+    STATUS    = 0x04,          // This register includes bits that 
                                             // describe the various conditions 
                                             // of the ADXL357. 
-#define ADXL357_REG_FIFO_ENTRIES (0x05)     // Number of data samples stored in the FIFO 
-#define ADXL357_REG_TEMP2 (0x06)            // Uncalibrated temperature data 
-#define ADXL357_REG_TEMP1 (0x07)
+    FIFO_ENTRIES = 0x05,     // Number of data samples stored in the FIFO 
+    TEMP2        = 0x06,            // Uncalibrated temperature data 
+    TEMP1        = 0x07,
 
-#define ADXL357_REG_XDATA3 (0x08)           // X-axis data
-#define ADXL357_REG_XDATA2 (0x09)
-#define ADXL357_REG_XDATA1 (0x0A)
+    XDATA3       = 0x08,           // X-axis data
+    XDATA2       = 0x09,
+    XDATA1       = 0x0A,
 
-#define ADXL357_REG_YDATA3 (0x0B)           // Y-axis data
-#define ADXL357_REG_YDATA2 (0x0C)
-#define ADXL357_REG_YDATA1 (0x0D)
+    YDATA3       = 0x0B,           // Y-axis data
+    YDATA2       = 0x0C,
+    YDATA1       = 0x0D,
 
-#define ADXL357_REG_ZDATA3 (0x0E)           // Z-axis data
-#define ADXL357_REG_ZDATA2 (0x0F)
-#define ADXL357_REG_ZDATA1 (0x10)
+    ZDATA3       = 0x0E,           // Z-axis data
+    ZDATA2       = 0x0F,
+    ZDATA1       = 0x10,
 
-#define ADXL357_REG_FIFO_DATA (0x11)
+    FIFO_DATA    = 0x11,
 
-#define ADXL357_REG_OFFSET_X_H (0x1E)       // Offset added to x-axis data after all 
+    OFFSET_X_H   = 0x1E,      // Offset added to x-axis data after all 
                                             // other signal processing.
-#define ADXL357_REG_OFFSET_X_L (0x1F)
+    OFFSET_X_L   = 0x1F,
 
-#define ADXL357_REG_OFFSET_Y_H (0x20)       // Offset added to y-axis data after all 
+    OFFSET_Y_H   = 0x20,       // Offset added to y-axis data after all 
                                             // other signal processing.
-#define ADXL357_REG_OFFSET_Y_L (0x21)
+    OFFSET_Y_L   = 0x21,
 
-#define ADXL357_REG_OFFSET_Z_H (0x22)       // Offset added to z-axis data after all 
+    OFFSET_Z_H   = 0x22,       // Offset added to z-axis data after all 
                                             // other signal processing.
-#define ADXL357_REG_OFFSET_Z_L (0x23)
+    OFFSET_Z_L   = 0x23,
 
-#define ADXL357_REG_ACT_EN (0x24)
-#define ADXL357_REG_ACT_THRESH_H (0x25)
-#define ADXL357_REG_ACT_THRESH_L (0x26)
-#define ADXL357_REG_ACT_COUNT (0x27)
+    ACT_EN        = 0x24,
+    ACT_THRESH_H  = 0x25,
+    ACT_THRESH_L  = 0x26,
+    ACT_COUNT     = 0x27,
 
-#define ADXL357_REG_FILTER (0x28)           // Use this register to specify parameters for the internal high-pass and low-pass filters. 
-#define ADXL357_REG_FIFO_SAMPLES (0x29)     // Watermark number of samples stored in the FIFO that triggers a FIFO_FULL condition. Values range from 1 to 96. 
-#define ADXL357_REG_INT_MAP (0x2A)
-#define ADXL357_REG_SYNC (0x2B)             // Use this register to control the external timing triggers
-#define ADXL357_REG_RANGE (0x2C)
-#define ADXL357_REG_POWER_CTL (0x2D)
-#define ADXL357_REG_SELF_TEST (0x2E)
-#define ADXL357_REG_RESET (0x2F)
+    FILTER        = 0x28,           // Use this register to specify parameters for the internal high-pass and low-pass filters. 
+    FIFO_SAMPLES  = 0x29,     // Watermark number of samples stored in the FIFO that triggers a FIFO_FULL condition. Values range from 1 to 96. 
+    INT_MAP       = 0x2A,
+    SYNC          = 0x2B,           // Use this register to control the external timing triggers
+    RANGE         = 0x2C,
+    POWER_CTL     = 0x2D,
+    SELF_TEST     = 0x2E,
+    RESET         = 0x2F,
+};
 
 
 // Scale Fractor
@@ -108,9 +108,9 @@ public:
     uint8_t getDeviceID();
     uint8_t getMaskRevision();
 
-    void writeRegister(uint8_t reg, uint8_t value);
-    uint8_t readRegister(uint8_t reg);
-    int32_t read20(uint8_t reg);
+    void writeRegister(const ADXL357_REGISTERS& reg, uint8_t value);
+    uint8_t readRegister(const ADXL357_REGISTERS& reg);
+    int32_t read20(const ADXL357_REGISTERS& reg);
 
     int32_t getX();
     int32_t getY();
