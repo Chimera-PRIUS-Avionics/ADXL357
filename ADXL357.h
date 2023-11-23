@@ -62,12 +62,6 @@ enum class ADXL357_REGISTERS : uint8_t{
     RESET         = 0x2F,
 };
 
-
-// Scale Fractor
-#define ADXL357_SCL_10G (19.5e-6)
-#define ADXL357_SCL_20G (39e-6)
-#define ADXL357_SCL_40G (78e-6)
-
 // Ranges
 enum class adxl357_range_t : uint8_t{
     I2C_HS_High_Speed_Mode = 0b10000000,
@@ -95,11 +89,23 @@ enum class adxl357_power_ctl_t : uint8_t{
 
 class ADXL357 {
 public:
+    struct scale_t{
+        double _10G;
+        double _20G;
+        double _40G;
+    };
+
+private:
+    static scale_t Scale;
+
+public:
     ADXL357(bool isASELHigh = false);
 
     bool begin();
     bool setRange(adxl357_range_t range);
     adxl357_range_t getRange();
+
+    double getScale();
 
     void setMode(bool isMeasurmentMode);
 
@@ -115,7 +121,7 @@ public:
     int32_t getX();
     int32_t getY();
     int32_t getZ();
-    bool getXYZ(int32_t &x, int32_t &y, int32_t &z);
+    bool    getXYZ(int32_t &x, int32_t &y, int32_t &z);
 
 protected:
     uint8_t _i2caddr;
@@ -128,5 +134,6 @@ protected:
     adxl357_power_ctl_t _temp_off;
     adxl357_power_ctl_t _standby;
 };
+
 
 #endif

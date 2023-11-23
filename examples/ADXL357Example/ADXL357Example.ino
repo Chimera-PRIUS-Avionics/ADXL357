@@ -5,7 +5,7 @@ ADXL357 accel = ADXL357(false);
 
 void setup(void)
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial);
   Serial.println("Accelerometer Test"); Serial.println("");
 
@@ -31,13 +31,16 @@ void loop(void)
 {
   double x, y, z;
 
-  x = accel.getX() * ADXL357_SCL_40G;
-  y = accel.getY() * ADXL357_SCL_40G;
-  z = accel.getZ() * ADXL357_SCL_40G;
+  double g = 9.81;
+
+  x = accel.getX() * accel.getScale() * g;
+  y = accel.getY() * accel.getScale() * g;
+  z = accel.getZ() * accel.getScale() * g;
 
   /* Display the results (acceleration is measured in m/s^2) */
-  Serial.print("X: "); Serial.print(x); Serial.print("g  ");
-  Serial.print("Y: "); Serial.print(y); Serial.print("g  ");
-  Serial.print("Z: "); Serial.print(z); Serial.print("g  ");
-  delay(500);
+  Serial.print("Variable_1:"); Serial.print(x, 12); Serial.print("\t");
+  Serial.print("Variable_2:"); Serial.print(y, 12); Serial.print("\t");
+  Serial.print("Variable_3:"); Serial.print(z, 12); 
+  Serial.print("\r\n");
+  delay(1);
 }

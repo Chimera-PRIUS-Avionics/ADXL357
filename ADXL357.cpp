@@ -3,6 +3,12 @@
 
 #include "ADXL357.h"
 
+ADXL357::scale_t ADXL357::Scale = {
+    ._10G = 19.5e-6,
+    ._20G = 39e-6,
+    ._40G = 78e-6,
+};
+
 ADXL357::ADXL357(bool isASELHigh):
     _i2c_speed(adxl357_range_t::I2C_HS_High_Speed_Mode),
     _int_pol(adxl357_range_t::INT_POL_LOW),
@@ -77,6 +83,18 @@ bool ADXL357::setRange(adxl357_range_t range){
 
 adxl357_range_t ADXL357::getRange(){
     return _range;
+}
+
+double ADXL357::getScale(){
+    switch (this->getRange())
+    {
+    case adxl357_range_t::Range_40_G:
+        return ADXL357::Scale._40G;
+    case adxl357_range_t::Range_20_G:
+        return ADXL357::Scale._20G;
+    case adxl357_range_t::Range_10_G:
+        return ADXL357::Scale._10G;
+    }
 }
 
 void ADXL357::setMode(bool isMeasurmentMode){
