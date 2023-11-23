@@ -28,6 +28,18 @@ bool ADXL357::begin() {
     uint8_t DID = getDeviceID();
     uint8_t RevID = getMaskRevision();
 
+    Serial.print("analogDID: 0x");
+    Serial.println(analogDID, HEX);
+    
+    Serial.print("memsDID: 0x");
+    Serial.println(memsDID, HEX);
+
+    Serial.print("DID: 0x");
+    Serial.println(DID, HEX);
+
+    Serial.print("RevID: 0x");
+    Serial.println(RevID, HEX);
+
     if (analogDID != 0xAD) {
         return false;
     }
@@ -109,7 +121,7 @@ uint8_t ADXL357::readRegister(uint8_t reg) {
     Wire.beginTransmission(this->_i2caddr);
     Wire.write(reg);
     Wire.endTransmission();
-    Wire.requestFrom(this->_i2caddr, 1);
+    Wire.requestFrom(this->_i2caddr, uint8_t(1));
     uint8_t val = Wire.read();
   return val;
 }
@@ -118,14 +130,16 @@ int32_t ADXL357::read20(uint8_t reg) {
     Wire.beginTransmission(this->_i2caddr);
     Wire.write(reg);
     Wire.endTransmission();
-    Wire.requestFrom(this->_i2caddr, 3);
+    Wire.requestFrom(this->_i2caddr, uint8_t(3));
     uint8_t data3 = Wire.read();
     uint8_t data2 = Wire.read();
     uint8_t data1 = Wire.read();
 
-    uint32_t val = static_cast<uint32_t>(data3) << 12;
-    val |= (static_cast<uint32_t>(data2) << 4);
-    val |= (static_cast<uint32_t>(data1) >> 4);
+    int32_t val = static_cast<int32_t>(data3) << 16;
+    val |= (static_cast<int32_t>(data2) << 8);
+    val |= (static_cast<int32_t>(data1) & 0xF0);
+
+    val = (val<<8)>>12;
     return static_cast<int32_t>(val);
 }
 

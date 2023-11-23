@@ -64,9 +64,9 @@
 
 
 // Scale Fractor
-#define ADXL357_SCL_10G (19.5e-6) /**< 19.5ug per lsb */
-#define ADXL357_SCL_20G (39e-6) /**< 19.5ug per lsb */
-#define ADXL357_SCL_40G (78e-6) /**< 19.5ug per lsb */
+#define ADXL357_SCL_10G (19.5e-6)
+#define ADXL357_SCL_20G (39e-6)
+#define ADXL357_SCL_40G (78e-6)
 
 // Ranges
 enum class adxl357_range_t : uint8_t{
