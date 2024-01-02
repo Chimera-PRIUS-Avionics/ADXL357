@@ -89,6 +89,30 @@ enum class adxl357_power_ctl_t : uint8_t{
 };
 
 
+// Internal high-pass and low-pass filters
+enum class adxl357_filter_t : uint8_t{
+    HPF_CORNER_NO_HPF    = 0b00000000,
+    HPF_CORNER_24_7EN4   = 0b00010000, /*!< 24.7 × 10−4 × ODR */
+    HPF_CORNER_6_2084EN4 = 0b00100000, /*!< 6.2084  × 10−4 × ODR */
+    HPF_CORNER_1_5545EN4 = 0b00110000, /*!< 1.5545  × 10−4 × ODR */
+    HPF_CORNER_0_3862EN4 = 0b01000000, /*!< 0.3862  × 10−4 × ODR */
+    HPF_CORNER_0_0964EN4 = 0b01010000, /*!< 0.0954  × 10−4 × ODR */
+    HPF_CORNER_0_0238EN4 = 0b01100000, /*!< 0.0238  × 10−4 × ODR */
+
+    ODR_LPF_4000         = 0b00000000, /*!< ODR: 4000 Hz and LPF: 1000 Hz */
+    ODR_LPF_2000         = 0b00000001, /*!< ODR: 1000 Hz and LPF: 500 Hz */
+    ODR_LPF_1000         = 0b00000010, /*!< ODR: 1000 Hz and LPF: 250 Hz */
+    ODR_LPF_500          = 0b00000011, /*!< ODR: 500 Hz and LPF: 125 Hz */
+    ODR_LPF_250          = 0b00000100, /*!< ODR: 250 Hz and LPF: 62.5 Hz */
+    ODR_LPF_125          = 0b00000101, /*!< ODR: 125 Hz and LPF: 31.25 Hz */
+    ODR_LPF_62_5         = 0b00000110, /*!< ODR: 62.5 Hz and LPF: 15.625 Hz */
+    ODR_LPF_31_25        = 0b00000111, /*!< ODR: 31.25 Hz and LPF: 7.813 Hz */
+    ODR_LPF_15_625       = 0b00001000, /*!< ODR: 15.625 Hz and LPF: 3.906 Hz */
+    ODR_LPF_7_813        = 0b00001001, /*!< ODR: 7.813 Hz and LPF: 1.953 Hz */
+    ODR_LPF_3_906        = 0b00001010, /*!< ODR: 3.906 Hz and LPF: 0.977 Hz */
+};
+
+
 //!  A ADXL357 class. 
 /*!
     For ADXL357 Accelerometer in I2C bus;
@@ -118,6 +142,11 @@ public:
     bool begin();
     bool setRange(adxl357_range_t range);
     adxl357_range_t getRange();
+
+    bool setFilter(adxl357_filter_t filter);
+    adxl357_filter_t getFilter();
+    double getHPF();
+    double getODR();
 
     double getScale();
 
