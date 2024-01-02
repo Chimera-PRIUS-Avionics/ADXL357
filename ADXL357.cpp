@@ -85,6 +85,78 @@ adxl357_range_t ADXL357::getRange(){
     return _range;
 }
 
+bool ADXL357::setFilter(adxl357_filter_t filter){
+    if(_standby == adxl357_power_ctl_t::Standby_Measurement){
+        return false;
+    }
+
+    writeRegister(ADXL357_REGISTERS::FILTER, static_cast<uint8_t>(filter));
+
+    return true;
+}
+
+adxl357_filter_t ADXL357::getFilter(){
+    return static_cast<adxl357_filter_t>(readRegister(ADXL357_REGISTERS::FILTER));
+}
+
+double ADXL357::getHPF(){
+    adxl357_filter_t filter = static_cast<adxl357_filter_t>(
+        static_cast<uint8_t>(this->getFilter()) & 0b01110000);
+
+    switch (filter)
+    {
+    case adxl357_filter_t::HPF_CORNER_NO_HPF:
+        return 0;
+    case adxl357_filter_t::HPF_CORNER_24_7EN4:
+        return 24.7e-4 * this->getODR();
+    case adxl357_filter_t::HPF_CORNER_6_2084EN4:
+        return 6.2084e-4 * this->getODR();
+    case adxl357_filter_t::HPF_CORNER_1_5545EN4:
+        return 1.5545e-4 * this->getODR();
+    case adxl357_filter_t::HPF_CORNER_0_3862EN4:
+        return 0.3862e-4 * this->getODR();
+    case adxl357_filter_t::HPF_CORNER_0_0964EN4:
+        return 0.0954e-4 * this->getODR();
+    case adxl357_filter_t::HPF_CORNER_0_0238EN4:
+        return 0.0238e-4 * this->getODR();
+    default:
+        return -1;
+    }
+}
+
+double ADXL357::getODR(){
+    adxl357_filter_t filter = static_cast<adxl357_filter_t>(
+        static_cast<uint8_t>(this->getFilter()) & 0b00001111);
+
+    switch (filter)
+    {
+        case adxl357_filter_t::ODR_LPF_4000         : /*!< ODR: 4000 Hz and LPF: 1000 Hz */
+            return 4000;
+        case adxl357_filter_t::ODR_LPF_2000         : /*!< ODR: 1000 Hz and LPF: 500 Hz */
+            return 2000;
+        case adxl357_filter_t::ODR_LPF_1000         : /*!< ODR: 1000 Hz and LPF: 250 Hz */
+            return 1000;
+        case adxl357_filter_t::ODR_LPF_500          : /*!< ODR: 500 Hz and LPF: 125 Hz */
+            return 500;
+        case adxl357_filter_t::ODR_LPF_250          : /*!< ODR: 250 Hz and LPF: 62.5 Hz */
+            return 250;
+        case adxl357_filter_t::ODR_LPF_125          : /*!< ODR: 125 Hz and LPF: 31.25 Hz */
+            return 125;
+        case adxl357_filter_t::ODR_LPF_62_5         : /*!< ODR: 62.5 Hz and LPF: 15.625 Hz */
+            return 62.5;
+        case adxl357_filter_t::ODR_LPF_31_25        : /*!< ODR: 31.25 Hz and LPF: 7.813 Hz */
+            return 31.25;
+        case adxl357_filter_t::ODR_LPF_15_625       : /*!< ODR: 15.625 Hz and LPF: 3.906 Hz */
+            return 15.625;
+        case adxl357_filter_t::ODR_LPF_7_813        : /*!< ODR: 7.813 Hz and LPF: 1.953 Hz */
+            return 7.813;
+        case adxl357_filter_t::ODR_LPF_3_906        : /*!< ODR: 3.906 Hz and LPF: 0.977 Hz */
+            return 3.906;
+        default:
+            return -1;
+    }
+}
+
 double ADXL357::getScale(){
     switch (this->getRange())
     {
