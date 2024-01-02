@@ -1,7 +1,13 @@
 var searchData=
 [
-  ['temp1_70',['TEMP1',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221af7a9208d216641e12f0cca018e5e39f3',1,'ADXL357.h']]],
-  ['temp2_71',['TEMP2',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221acd75d7cd5938bebc3502fafed749615c',1,'ADXL357.h']]],
-  ['temp_5foff_5fdisable_72',['TEMP_OFF_Disable',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0a5db1416f4f2d0b34b6320433bf8dd072',1,'ADXL357.h']]],
-  ['temp_5foff_5fenable_73',['TEMP_OFF_Enable',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0ab91aba50039678dc5f2ab51d60ff9bd1',1,'ADXL357.h']]]
+  ['scale_83',['Scale',['../class_a_d_x_l357.html#ae5bc6a58eb4d72298dafccec999f13df',1,'ADXL357']]],
+  ['scale_5ft_84',['scale_t',['../struct_a_d_x_l357_1_1scale__t.html',1,'ADXL357']]],
+  ['self_5ftest_85',['SELF_TEST',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a92ff39126f3fe7a9be0f0b6248786572',1,'ADXL357.h']]],
+  ['setfilter_86',['setFilter',['../class_a_d_x_l357.html#a990843731446d12aba5269421842ffde',1,'ADXL357']]],
+  ['setmode_87',['setMode',['../class_a_d_x_l357.html#aa92c07863af9f0f7dd722e244ba876f4',1,'ADXL357']]],
+  ['setrange_88',['setRange',['../class_a_d_x_l357.html#adcdbf3934b8eaed78ce841c6a2fdd2e1',1,'ADXL357']]],
+  ['standby_5fmeasurement_89',['Standby_Measurement',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0a320892127a24f13db184cf25f468334d',1,'ADXL357.h']]],
+  ['standby_5fstandby_90',['Standby_Standby',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0acf39187c87f7c47f8401878fae950bcb',1,'ADXL357.h']]],
+  ['status_91',['STATUS',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a5f241c8c8f985b3c51e05d39cf030f4c',1,'ADXL357.h']]],
+  ['sync_92',['SYNC',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a274ccef15a21e829d03293a6fd1974f3',1,'ADXL357.h']]]
 ];

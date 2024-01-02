@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['temp1_156',['TEMP1',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221af7a9208d216641e12f0cca018e5e39f3',1,'ADXL357.h']]],
-  ['temp2_157',['TEMP2',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221acd75d7cd5938bebc3502fafed749615c',1,'ADXL357.h']]],
-  ['temp_5foff_5fdisable_158',['TEMP_OFF_Disable',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0a5db1416f4f2d0b34b6320433bf8dd072',1,'ADXL357.h']]],
-  ['temp_5foff_5fenable_159',['TEMP_OFF_Enable',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0ab91aba50039678dc5f2ab51d60ff9bd1',1,'ADXL357.h']]]
+  ['self_5ftest_197',['SELF_TEST',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a92ff39126f3fe7a9be0f0b6248786572',1,'ADXL357.h']]],
+  ['standby_5fmeasurement_198',['Standby_Measurement',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0a320892127a24f13db184cf25f468334d',1,'ADXL357.h']]],
+  ['standby_5fstandby_199',['Standby_Standby',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0acf39187c87f7c47f8401878fae950bcb',1,'ADXL357.h']]],
+  ['status_200',['STATUS',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a5f241c8c8f985b3c51e05d39cf030f4c',1,'ADXL357.h']]],
+  ['sync_201',['SYNC',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a274ccef15a21e829d03293a6fd1974f3',1,'ADXL357.h']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['xdata1_160',['XDATA1',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221a7bbd54297ec1f8f292d6ba1ee930d0ac',1,'ADXL357.h']]],
-  ['xdata2_161',['XDATA2',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221ac55598f48e073eb1f0fefe8a0ebafd22',1,'ADXL357.h']]],
-  ['xdata3_162',['XDATA3',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221aac60be275e2aa827b5e5aa37382e3f76',1,'ADXL357.h']]]
+  ['temp1_202',['TEMP1',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221af7a9208d216641e12f0cca018e5e39f3',1,'ADXL357.h']]],
+  ['temp2_203',['TEMP2',['../_a_d_x_l357_8h.html#a2b0ec1cfd61f62f18858f1859df5e221acd75d7cd5938bebc3502fafed749615c',1,'ADXL357.h']]],
+  ['temp_5foff_5fdisable_204',['TEMP_OFF_Disable',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0a5db1416f4f2d0b34b6320433bf8dd072',1,'ADXL357.h']]],
+  ['temp_5foff_5fenable_205',['TEMP_OFF_Enable',['../_a_d_x_l357_8h.html#ae9d86956924ecb5e498859f2469c9bb0ab91aba50039678dc5f2ab51d60ff9bd1',1,'ADXL357.h']]]
 ];
