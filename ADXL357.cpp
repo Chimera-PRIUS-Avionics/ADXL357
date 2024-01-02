@@ -248,8 +248,25 @@ int32_t ADXL357::getZ() {
 }
 
 bool ADXL357::getXYZ(int32_t &x, int32_t &y, int32_t &z) {
-    x = getX();
-    y = getY();
-    z = getZ();
+    Wire.beginTransmission(this->_i2caddr);
+    Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::XDATA3));
+    Wire.endTransmission();
+    Wire.requestFrom(this->_i2caddr, uint8_t(9));
+
+    x = static_cast<int32_t>(Wire.read()) << 16;
+    x |= (static_cast<int32_t>(Wire.read()) << 8);
+    x |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    x = (x<<8)>>12;
+
+    y = static_cast<int32_t>(Wire.read()) << 16;
+    y |= (static_cast<int32_t>(Wire.read()) << 8);
+    y |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    y = (y<<8)>>12;
+
+    z = static_cast<int32_t>(Wire.read()) << 16;
+    z |= (static_cast<int32_t>(Wire.read()) << 8);
+    z |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    z = (z<<8)>>12;
+
     return true;
 }
