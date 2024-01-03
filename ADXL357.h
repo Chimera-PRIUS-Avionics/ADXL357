@@ -172,6 +172,10 @@ public:
     */
     bool    getXYZ(int32_t &x, int32_t &y, int32_t &z);
 
+    uint8_t getFIFOEntries();
+
+    bool    getFIFOData(int32_t &x, int32_t &y, int32_t &z);
+
 protected:
     uint8_t _i2caddr;
 
