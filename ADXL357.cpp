@@ -3,6 +3,14 @@
 
 #include "ADXL357.h"
 
+
+inline void Read20BitInt(int32_t* x){
+    *x = static_cast<int32_t>(Wire.read()) << 16;
+    *x |= (static_cast<int32_t>(Wire.read()) << 8);
+    *x |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    *x = (*x<<8)>>12;
+}
+
 ADXL357::scale_t ADXL357::Scale = {
     ._10G = 19.5e-6,
     ._20G = 39e-6,
@@ -248,8 +256,136 @@ int32_t ADXL357::getZ() {
 }
 
 bool ADXL357::getXYZ(int32_t &x, int32_t &y, int32_t &z) {
-    x = getX();
-    y = getY();
-    z = getZ();
+    Wire.beginTransmission(this->_i2caddr);
+    Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::XDATA3));
+    Wire.endTransmission();
+    Wire.requestFrom(this->_i2caddr, uint8_t(9));
+
+    x = static_cast<int32_t>(Wire.read()) << 16;
+    x |= (static_cast<int32_t>(Wire.read()) << 8);
+    x |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    x = (x<<8)>>12;
+
+    y = static_cast<int32_t>(Wire.read()) << 16;
+    y |= (static_cast<int32_t>(Wire.read()) << 8);
+    y |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    y = (y<<8)>>12;
+
+    z = static_cast<int32_t>(Wire.read()) << 16;
+    z |= (static_cast<int32_t>(Wire.read()) << 8);
+    z |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    z = (z<<8)>>12;
+
     return true;
+}
+
+uint8_t ADXL357::getFIFOEntries()
+{
+    uint8_t val = readRegister(ADXL357_REGISTERS::FIFO_ENTRIES);
+
+    return val & 0b01111111;
+}
+
+bool ADXL357::getFIFOData(int32_t &x, int32_t &y, int32_t &z)
+{
+    Wire.beginTransmission(this->_i2caddr);
+    Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::FIFO_DATA));
+    Wire.endTransmission();
+    Wire.requestFrom(this->_i2caddr, uint8_t(9));
+
+    x = static_cast<int32_t>(Wire.read()) << 16;
+    x |= (static_cast<int32_t>(Wire.read()) << 8);
+    x |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    x = (x<<8)>>12;
+
+    y = static_cast<int32_t>(Wire.read()) << 16;
+    y |= (static_cast<int32_t>(Wire.read()) << 8);
+    y |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    y = (y<<8)>>12;
+
+    z = static_cast<int32_t>(Wire.read()) << 16;
+    z |= (static_cast<int32_t>(Wire.read()) << 8);
+    z |= (static_cast<int32_t>(Wire.read()) & 0xF0);
+    z = (z<<8)>>12;
+
+    return true;
+}
+
+int8_t ADXL357::getAllFIFOData(int32_t data[])
+{
+    int8_t n = this->getFIFOEntries();
+
+    if(n%3){
+        Wire.beginTransmission(this->_i2caddr);
+        Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::FIFO_DATA));
+        Wire.endTransmission();
+        Wire.requestFrom(this->_i2caddr, uint8_t( (n%3) * 3));
+        for(int i = (n%3) * 3; i > 0; --i){
+            Wire.read();
+        }
+        n = n - n%3;
+    }
+
+    return this->getNFIFOData(n, data, data+n/3, data+n/3 * 2);
+}
+
+int8_t ADXL357::getAllFIFOData(int32_t x[], int32_t y[], int32_t z[])
+{
+    int8_t n = this->getFIFOEntries();
+
+    if(n%3){
+        Wire.beginTransmission(this->_i2caddr);
+        Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::FIFO_DATA));
+        Wire.endTransmission();
+        Wire.requestFrom(this->_i2caddr, uint8_t( (n%3) * 3));
+        for(int i = (n%3) * 3; i > 0; --i){
+            Wire.read();
+        }
+        n = n - n%3;
+    }
+
+    return this->getNFIFOData(n, x, y, z);
+}
+
+int8_t ADXL357::getNFIFOData(int8_t n, int32_t x[], int32_t y[], int32_t z[])
+{
+
+    if(n > 3){
+        if( n <= 9){
+            Wire.beginTransmission(this->_i2caddr);
+            Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::FIFO_DATA));
+            Wire.endTransmission();
+            Wire.requestFrom(this->_i2caddr, uint8_t(n * 3));
+
+            for (size_t i = 0; i < n/3; i++)
+            {
+                Read20BitInt(x+i);
+                Read20BitInt(y+i);
+                Read20BitInt(z+i);
+            }
+            
+            return n;
+        }else{
+            Wire.beginTransmission(this->_i2caddr);
+            Wire.write(static_cast<uint8_t>(ADXL357_REGISTERS::FIFO_DATA));
+            Wire.endTransmission();
+            Wire.requestFrom(this->_i2caddr, uint8_t(9 * 3));
+
+            Read20BitInt(x);
+            Read20BitInt(y);
+            Read20BitInt(z);
+
+            Read20BitInt(x+1);
+            Read20BitInt(y+1);
+            Read20BitInt(z+1);
+
+            Read20BitInt(x+2);
+            Read20BitInt(y+2);
+            Read20BitInt(z+2);
+            return 9 + getNFIFOData(n-9, x+3, y+3, z+3);
+        }
+
+    }
+
+    return 0;
 }
