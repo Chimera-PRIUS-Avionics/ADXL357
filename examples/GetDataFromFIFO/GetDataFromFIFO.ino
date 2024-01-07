@@ -3,9 +3,6 @@
 
 ADXL357 accel = ADXL357(false);
 
-double scale = 0;
-double g;
-
 void setup(void)
 {
   Serial.begin(115200);
@@ -27,22 +24,23 @@ void setup(void)
 
   accel.setMode(true);
 
-  scale = accel.getScale();
-  g = 9.81;
-
   Serial.println("");
 }
 
 void loop(void)
 {
-  int32_t x, y, z;
+  int n = accel.getFIFOEntries();
 
-  if(accel.getXYZ(x, y, z)){
-    /* Display the results (acceleration is measured in m/s^2) */
-    Serial.print("Variable_1:"); Serial.print(x * scale * g, 12); Serial.print("\t");
-    Serial.print("Variable_2:"); Serial.print(y * scale * g, 12); Serial.print("\t");
-    Serial.print("Variable_3:"); Serial.print(z * scale * g, 12); 
+  Serial.print("Current Frame have FIFO: "); Serial.println(n);
+
+  for(int i = 0; i < n; ++i){
+    int32_t x, y, z;
+    accel.getFIFOData(x, y, z);
+
+    /* Display the results (acceleration is measured in gs */
+    Serial.print("x:"); Serial.print(x * accel.getScale(), 12); Serial.print("\t");
+    Serial.print("y:"); Serial.print(y * accel.getScale(), 12); Serial.print("\t");
+    Serial.print("z:"); Serial.print(z * accel.getScale(), 12); 
     Serial.print("\r\n");
   }
-  delay(1);
 }

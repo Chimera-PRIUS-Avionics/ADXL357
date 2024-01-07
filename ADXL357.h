@@ -176,6 +176,12 @@ public:
 
     bool    getFIFOData(int32_t &x, int32_t &y, int32_t &z);
 
+    int8_t getAllFIFOData(int32_t data[]);
+
+    int8_t getAllFIFOData(int32_t x[], int32_t y[], int32_t z[]);
+
+    int8_t getNFIFOData(int8_t n, int32_t x[], int32_t y[], int32_t z[]);
+
 protected:
     uint8_t _i2caddr;
 
