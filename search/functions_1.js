@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin_118',['begin',['../class_a_d_x_l357.html#a7ab58f16e2fa29e9897fd132e909b663',1,'ADXL357']]]
+  ['getxyz_6',['getXYZ',['../classADXL357.html#a264b070dad0dccb5e5324371ed321eac',1,'ADXL357']]]
 ];
