@@ -138,27 +138,27 @@ double ADXL357::getODR(){
 
     switch (filter)
     {
-        case adxl357_filter_t::ODR_LPF_4000         : /*!< ODR: 4000 Hz and LPF: 1000 Hz */
+        case adxl357_filter_t::ODR_LPF_4000         :
             return 4000;
-        case adxl357_filter_t::ODR_LPF_2000         : /*!< ODR: 1000 Hz and LPF: 500 Hz */
+        case adxl357_filter_t::ODR_LPF_2000         :
             return 2000;
-        case adxl357_filter_t::ODR_LPF_1000         : /*!< ODR: 1000 Hz and LPF: 250 Hz */
+        case adxl357_filter_t::ODR_LPF_1000         :
             return 1000;
-        case adxl357_filter_t::ODR_LPF_500          : /*!< ODR: 500 Hz and LPF: 125 Hz */
+        case adxl357_filter_t::ODR_LPF_500          :
             return 500;
-        case adxl357_filter_t::ODR_LPF_250          : /*!< ODR: 250 Hz and LPF: 62.5 Hz */
+        case adxl357_filter_t::ODR_LPF_250          :
             return 250;
-        case adxl357_filter_t::ODR_LPF_125          : /*!< ODR: 125 Hz and LPF: 31.25 Hz */
+        case adxl357_filter_t::ODR_LPF_125          :
             return 125;
-        case adxl357_filter_t::ODR_LPF_62_5         : /*!< ODR: 62.5 Hz and LPF: 15.625 Hz */
+        case adxl357_filter_t::ODR_LPF_62_5         :
             return 62.5;
-        case adxl357_filter_t::ODR_LPF_31_25        : /*!< ODR: 31.25 Hz and LPF: 7.813 Hz */
+        case adxl357_filter_t::ODR_LPF_31_25        :
             return 31.25;
-        case adxl357_filter_t::ODR_LPF_15_625       : /*!< ODR: 15.625 Hz and LPF: 3.906 Hz */
+        case adxl357_filter_t::ODR_LPF_15_625       :
             return 15.625;
-        case adxl357_filter_t::ODR_LPF_7_813        : /*!< ODR: 7.813 Hz and LPF: 1.953 Hz */
+        case adxl357_filter_t::ODR_LPF_7_813        :
             return 7.813;
-        case adxl357_filter_t::ODR_LPF_3_906        : /*!< ODR: 3.906 Hz and LPF: 0.977 Hz */
+        case adxl357_filter_t::ODR_LPF_3_906        :
             return 3.906;
         default:
             return -1;

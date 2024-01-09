@@ -1,13 +1,18 @@
-// This is a library for the ADXL 357 Sensor.0x03
-//
-//    Author: Yuzhou Shen
-//    File: ADXL357.h
-//
-#ifndef ADXL357_H
-#define ADXL357_H
+/**
+ * @brief This is a library for the ADXL 357 Sensor.
+ *
+ * @author Yuzhou Shen
+ *
+ */
 
+#pragma once
 #include "Arduino.h"
 
+
+/**
+ * @brief This is a enum type to store the address of register in ADXL357
+ *
+ */
 enum class ADXL357_REGISTERS : uint8_t{
     DEVID_AD  = 0x00,
     DEVID_MST = 0x01,
@@ -63,33 +68,58 @@ enum class ADXL357_REGISTERS : uint8_t{
     RESET         = 0x2F,
 };
 
-// Ranges
+/**
+ * @brief ADXL357_REGISTERS::RANGE (`0x2C`) register defination.
+ * 
+ * <b class="tab-title">Bit Descriptions for Range </b>
+ * | Bits     | 7      | 6       | [5:2]    | [1:0] |
+ * |----------|--------|---------|----------|-------|
+ * | Bit Name | I2C_HS | INT_POL | Reserved | Range |
+ * 
+ */
 enum class adxl357_range_t : uint8_t{
-    I2C_HS_High_Speed_Mode = 0b10000000,
-    I2C_HS_Fast_Mode =       0b00000000,
+    I2C_HS_High_Speed_Mode = 0b10000000, /*!< I2C speed: High speed mode. */
+    I2C_HS_Fast_Mode =       0b00000000, /*!< I2C speed: Fast mode. */
 
-    INT_POL_LOW =            0b00000000,
-    INT_POL_High =           0b01000000,
+    INT_POL_LOW =            0b00000000, /*!< INT1 and INT2 are active **low**.  */
+    INT_POL_High =           0b01000000, /*!< INT1 and INT2 are active **high**.  */
 
-    Range_40_G =             0b00000011,
-    Range_20_G =             0b00000010,
-    Range_10_G =             0b00000001,
+    Range_40_G =             0b00000011, /*!< +/- 40 g*/
+    Range_20_G =             0b00000010, /*!< +/- 20 g*/
+    Range_10_G =             0b00000001, /*!< +/- 10 g*/
 };
 
-// Power Contrl
+/**
+ * @brief ADXL357_REGISTERS::POWER_CTL (`0x2D`) register defination.
+ * 
+ * <b class="tab-title">Bit Descriptions for power control </b>
+ * | Bits     | [7:3]      | 2        | 1         | 0        |
+ * |----------|------------|----------|-----------|----------|
+ * | Bit Name |  Reserved  | DRDY_OFF |  TEMP_OFF |  Standby |
+ * 
+ */
 enum class adxl357_power_ctl_t : uint8_t{
     DRDY_OFF_DEFAULT =       0b00000000,
     DRDY_OFF_0       =       0b00000100,
 
-    TEMP_OFF_Enable  =       0b00000000,
-    TEMP_OFF_Disable =       0b00000010,
+    TEMP_OFF_Enable  =       0b00000000, /*!< Enable temperature processing. */
+    TEMP_OFF_Disable =       0b00000010, /*!< Disable temperature processing. Temperature processing is also disabled when standby = 1.*/
 
     Standby_Measurement =    0b00000000,
     Standby_Standby =        0b00000001,
 };
 
 
-// Internal high-pass and low-pass filters
+/**
+ * @brief ADXL357_REGISTERS::FILTER (`0x28`) register defination.
+ * 
+ * <b class="tab-title">Bit Descriptions for power control </b>
+ * | Bits        | 7        | [6:4]                                                                         | [3:0]                          |
+ * |-------------|----------|-------------------------------------------------------------------------------|--------------------------------|
+ * | Bit Name    | Reserved | HPF_CORNER                                                                    | ODR_LPF                        |
+ * | Description |          | −3 dB filter corner for the first-order, high-pass filter relative to the ODR | ODR and low-pass filter corner |
+ * 
+ */
 enum class adxl357_filter_t : uint8_t{
     HPF_CORNER_NO_HPF    = 0b00000000,
     HPF_CORNER_24_7EN4   = 0b00010000, /*!< 24.7 × 10−4 × ODR */
@@ -113,10 +143,10 @@ enum class adxl357_filter_t : uint8_t{
 };
 
 
-//!  A ADXL357 class. 
-/*!
-    For ADXL357 Accelerometer in I2C bus;
-*/
+/**
+ * @brief ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor.
+ *
+ */
 class ADXL357 {
 public:
     //! An scale scture.
@@ -130,13 +160,18 @@ public:
     };
 
 private:
-    //! An scale_t static member.
-    /*! Stored scale factors in different ranges.
-        \sa scale_t
+    /**
+     * @brief An scale_t static member.
+     * Stored scale factors in different ranges.
     */
     static scale_t Scale;
 
 public:
+    /**
+     * @brief Construct a new ADXL357 object
+     * 
+     * @param isASELHigh 
+     */
     ADXL357(bool isASELHigh = false);
 
     bool begin();
@@ -164,11 +199,14 @@ public:
     int32_t getX();
     int32_t getY();
     int32_t getZ();
-    //! Get Acceleration on X,Y,Z axis.
-    /*! 
-        \param x the output of x.
-        \param y the output of y.
-        \param z the output of z.
+   /**
+    * @brief Get Acceleration on X,Y,Z axis.
+    * 
+    * @param x the output of x.
+    * @param y the output of y.
+    * @param z the output of z.
+    * @return true: Successful.
+    * @return false: failed.
     */
     bool    getXYZ(int32_t &x, int32_t &y, int32_t &z);
 
@@ -193,6 +231,3 @@ protected:
     adxl357_power_ctl_t _temp_off;
     adxl357_power_ctl_t _standby;
 };
-
-
-#endif
