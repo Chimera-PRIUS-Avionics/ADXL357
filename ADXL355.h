@@ -19,16 +19,16 @@
  * | Bit Name | I2C_HS | INT_POL | Reserved | Range |
  * 
  */
-enum class adxl357_range_t : uint8_t{
+enum class adxl355_range_t : uint8_t{
     I2C_HS_High_Speed_Mode = 0b10000000, /*!< I2C speed: High speed mode. */
     I2C_HS_Fast_Mode =       0b00000000, /*!< I2C speed: Fast mode. */
 
     INT_POL_LOW =            0b00000000, /*!< INT1 and INT2 are active **low**.  */
     INT_POL_High =           0b01000000, /*!< INT1 and INT2 are active **high**.  */
 
-    Range_40_G =             0b00000011, /*!< +/- 40 g*/
-    Range_20_G =             0b00000010, /*!< +/- 20 g*/
-    Range_10_G =             0b00000001, /*!< +/- 10 g*/
+    Range_8_G =             0b00000011, /*!< +/- 40 g*/
+    Range_4_G =             0b00000010, /*!< +/- 20 g*/
+    Range_2_G =             0b00000001, /*!< +/- 10 g*/
 };
 
 
@@ -37,16 +37,16 @@ enum class adxl357_range_t : uint8_t{
  * @brief ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor.
  *
  */
-class ADXL357: public IADXL3XX {
+class ADXL355: public IADXL3XX {
 public:
     //! An scale scture.
     /*! To store scale factors in different ranges.
         \sa Scale
     */
     struct scale_t{
-        double _10G;
-        double _20G;
-        double _40G;
+        double _2G;
+        double _4G;
+        double _8G;
     };
 
 private:
@@ -62,9 +62,9 @@ public:
      * 
      * @param isASELHigh 
      */
-    ADXL357(bool isASELHigh = false);
+    ADXL355(bool isASELHigh = false);
 
-    virtual bool setRange(adxl357_range_t range);
+    virtual bool setRange(adxl355_range_t range);
 
     virtual double getScale();
 
