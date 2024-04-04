@@ -86,7 +86,6 @@ $(document).ready(function(){initNavTree('classADXL357.html',''); initResizable(
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classADXL357-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ADXL357 Class Reference</div>  </div>
@@ -97,6 +96,24 @@ $(document).ready(function(){initNavTree('classADXL357.html',''); initResizable(
  <a href="classADXL357.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ADXL357_8h_source.html">ADXL357.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for ADXL357:</div>
+<div class="dyncontent">
+<div class="center"><img src="classADXL357__inherit__graph.png" border="0" usemap="#aADXL357_inherit__map" alt="Inheritance graph"/></div>
+<map name="aADXL357_inherit__map" id="aADXL357_inherit__map">
+<area shape="rect" title="ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor." alt="" coords="8,80,89,107"/>
+<area shape="rect" href="classIADXL3XX.html" title=" " alt="" coords="5,5,92,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for ADXL357:</div>
+<div class="dyncontent">
+<div class="center"><img src="classADXL357__coll__graph.png" border="0" usemap="#aADXL357_coll__map" alt="Collaboration graph"/></div>
+<map name="aADXL357_coll__map" id="aADXL357_coll__map">
+<area shape="rect" title="ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor." alt="" coords="8,80,89,107"/>
+<area shape="rect" href="classIADXL3XX.html" title=" " alt="" coords="5,5,92,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -109,105 +126,119 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4602eb21a0316bcd3af91acc8987bc8d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADXL357.html#a4602eb21a0316bcd3af91acc8987bc8d">ADXL357</a> (bool isASELHigh=false)</td></tr>
 <tr class="memdesc:a4602eb21a0316bcd3af91acc8987bc8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classADXL357.html" title="ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor.">ADXL357</a> object.  <a href="classADXL357.html#a4602eb21a0316bcd3af91acc8987bc8d">More...</a><br /></td></tr>
 <tr class="separator:a4602eb21a0316bcd3af91acc8987bc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ab58f16e2fa29e9897fd132e909b663"><td class="memItemLeft" align="right" valign="top"><a id="a7ab58f16e2fa29e9897fd132e909b663"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
-<tr class="separator:a7ab58f16e2fa29e9897fd132e909b663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcdbf3934b8eaed78ce841c6a2fdd2e1"><td class="memItemLeft" align="right" valign="top"><a id="adcdbf3934b8eaed78ce841c6a2fdd2e1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setRange</b> (adxl357_range_t range)</td></tr>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setRange</b> (adxl357_range_t range)</td></tr>
 <tr class="separator:adcdbf3934b8eaed78ce841c6a2fdd2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a250ae242acaabbb1b9160a8633ed71c7"><td class="memItemLeft" align="right" valign="top"><a id="a250ae242acaabbb1b9160a8633ed71c7"></a>
-adxl357_range_t&#160;</td><td class="memItemRight" valign="bottom"><b>getRange</b> ()</td></tr>
-<tr class="separator:a250ae242acaabbb1b9160a8633ed71c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a990843731446d12aba5269421842ffde"><td class="memItemLeft" align="right" valign="top"><a id="a990843731446d12aba5269421842ffde"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setFilter</b> (adxl357_filter_t filter)</td></tr>
-<tr class="separator:a990843731446d12aba5269421842ffde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf4f23ab6a42a0758056c574a3380b4"><td class="memItemLeft" align="right" valign="top"><a id="a8cf4f23ab6a42a0758056c574a3380b4"></a>
-adxl357_filter_t&#160;</td><td class="memItemRight" valign="bottom"><b>getFilter</b> ()</td></tr>
-<tr class="separator:a8cf4f23ab6a42a0758056c574a3380b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7de621288e705ca25a6ecdd51ab1e0e9"><td class="memItemLeft" align="right" valign="top"><a id="a7de621288e705ca25a6ecdd51ab1e0e9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getHPF</b> ()</td></tr>
-<tr class="separator:a7de621288e705ca25a6ecdd51ab1e0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c9dd447392efe2654665ac9222b9476"><td class="memItemLeft" align="right" valign="top"><a id="a5c9dd447392efe2654665ac9222b9476"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getODR</b> ()</td></tr>
-<tr class="separator:a5c9dd447392efe2654665ac9222b9476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5728fc42edcb1a3faf3fbb7a1ca8364"><td class="memItemLeft" align="right" valign="top"><a id="ac5728fc42edcb1a3faf3fbb7a1ca8364"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getScale</b> ()</td></tr>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>getScale</b> ()</td></tr>
 <tr class="separator:ac5728fc42edcb1a3faf3fbb7a1ca8364"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa92c07863af9f0f7dd722e244ba876f4"><td class="memItemLeft" align="right" valign="top"><a id="aa92c07863af9f0f7dd722e244ba876f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMode</b> (bool isMeasurmentMode)</td></tr>
-<tr class="separator:aa92c07863af9f0f7dd722e244ba876f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cb8090302776d49dbedfc787f27d86d"><td class="memItemLeft" align="right" valign="top"><a id="a7cb8090302776d49dbedfc787f27d86d"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAnalogDeviceID</b> ()</td></tr>
-<tr class="separator:a7cb8090302776d49dbedfc787f27d86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e1b824f1dcab45d0203e739301f9ea3"><td class="memItemLeft" align="right" valign="top"><a id="a7e1b824f1dcab45d0203e739301f9ea3"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDeviceMEMSID</b> ()</td></tr>
-<tr class="separator:a7e1b824f1dcab45d0203e739301f9ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e41094225e2bef68ab5fc3c41be13bf"><td class="memItemLeft" align="right" valign="top"><a id="a3e41094225e2bef68ab5fc3c41be13bf"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDeviceID</b> ()</td></tr>
-<tr class="separator:a3e41094225e2bef68ab5fc3c41be13bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f73178e34a7a6659fa505a5f51f9c6"><td class="memItemLeft" align="right" valign="top"><a id="a13f73178e34a7a6659fa505a5f51f9c6"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMaskRevision</b> ()</td></tr>
-<tr class="separator:a13f73178e34a7a6659fa505a5f51f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5af72ff8e321f878a8184eb07f4a46"><td class="memItemLeft" align="right" valign="top"><a id="a3b5af72ff8e321f878a8184eb07f4a46"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeRegister</b> (const ADXL357_REGISTERS &amp;reg, uint8_t value)</td></tr>
-<tr class="separator:a3b5af72ff8e321f878a8184eb07f4a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d41d02d49390890c9be639fc124d81a"><td class="memItemLeft" align="right" valign="top"><a id="a1d41d02d49390890c9be639fc124d81a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>readRegister</b> (const ADXL357_REGISTERS &amp;reg)</td></tr>
-<tr class="separator:a1d41d02d49390890c9be639fc124d81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd444f223f436ce40752d1663b91c4a"><td class="memItemLeft" align="right" valign="top"><a id="a9cd444f223f436ce40752d1663b91c4a"></a>
-int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>read20</b> (const ADXL357_REGISTERS &amp;reg)</td></tr>
-<tr class="separator:a9cd444f223f436ce40752d1663b91c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11fa7e07731b4b9e2d1923ee63a3b597"><td class="memItemLeft" align="right" valign="top"><a id="a11fa7e07731b4b9e2d1923ee63a3b597"></a>
-int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> ()</td></tr>
-<tr class="separator:a11fa7e07731b4b9e2d1923ee63a3b597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c352a27429ba3336fc24a1cdeed40a"><td class="memItemLeft" align="right" valign="top"><a id="ae7c352a27429ba3336fc24a1cdeed40a"></a>
-int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getY</b> ()</td></tr>
-<tr class="separator:ae7c352a27429ba3336fc24a1cdeed40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af178be1b3ec20689511efdfbcfc3b4c9"><td class="memItemLeft" align="right" valign="top"><a id="af178be1b3ec20689511efdfbcfc3b4c9"></a>
-int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getZ</b> ()</td></tr>
-<tr class="separator:af178be1b3ec20689511efdfbcfc3b4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a264b070dad0dccb5e5324371ed321eac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classADXL357.html#a264b070dad0dccb5e5324371ed321eac">getXYZ</a> (int32_t &amp;x, int32_t &amp;y, int32_t &amp;z)</td></tr>
-<tr class="memdesc:a264b070dad0dccb5e5324371ed321eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Acceleration on X,Y,Z axis.  <a href="classADXL357.html#a264b070dad0dccb5e5324371ed321eac">More...</a><br /></td></tr>
-<tr class="separator:a264b070dad0dccb5e5324371ed321eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a430543389b550c8f2173d5a422d9c239"><td class="memItemLeft" align="right" valign="top"><a id="a430543389b550c8f2173d5a422d9c239"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getFIFOEntries</b> ()</td></tr>
-<tr class="separator:a430543389b550c8f2173d5a422d9c239"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5d28b7fe7537033a6edc9b1bf1fc24"><td class="memItemLeft" align="right" valign="top"><a id="a2d5d28b7fe7537033a6edc9b1bf1fc24"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getFIFOData</b> (int32_t &amp;x, int32_t &amp;y, int32_t &amp;z)</td></tr>
-<tr class="separator:a2d5d28b7fe7537033a6edc9b1bf1fc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73db0deaf54b285857e5aea185de7e4d"><td class="memItemLeft" align="right" valign="top"><a id="a73db0deaf54b285857e5aea185de7e4d"></a>
-int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAllFIFOData</b> (int32_t data[])</td></tr>
-<tr class="separator:a73db0deaf54b285857e5aea185de7e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902c3ed33244c4230d96694e2ab8ad60"><td class="memItemLeft" align="right" valign="top"><a id="a902c3ed33244c4230d96694e2ab8ad60"></a>
-int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAllFIFOData</b> (int32_t x[], int32_t y[], int32_t z[])</td></tr>
-<tr class="separator:a902c3ed33244c4230d96694e2ab8ad60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3f48109b95326f0336b2db0c4bcd0f8"><td class="memItemLeft" align="right" valign="top"><a id="ab3f48109b95326f0336b2db0c4bcd0f8"></a>
-int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getNFIFOData</b> (int8_t n, int32_t x[], int32_t y[], int32_t z[])</td></tr>
-<tr class="separator:ab3f48109b95326f0336b2db0c4bcd0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classIADXL3XX"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIADXL3XX')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classIADXL3XX.html">IADXL3XX</a></td></tr>
+<tr class="memitem:ab6babb450559e94d0b726b508ffcc6e7 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIADXL3XX.html#ab6babb450559e94d0b726b508ffcc6e7">IADXL3XX</a> (bool isASELHigh=false)</td></tr>
+<tr class="memdesc:ab6babb450559e94d0b726b508ffcc6e7 inherit pub_methods_classIADXL3XX"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classADXL357.html" title="ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor.">ADXL357</a> object.  <a href="classIADXL3XX.html#ab6babb450559e94d0b726b508ffcc6e7">More...</a><br /></td></tr>
+<tr class="separator:ab6babb450559e94d0b726b508ffcc6e7 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb5fe2121cab933e772c692d00d42f5d inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="afb5fe2121cab933e772c692d00d42f5d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:afb5fe2121cab933e772c692d00d42f5d inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a905f1c5c9937fd5d7c6891e5a634f9b5 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a905f1c5c9937fd5d7c6891e5a634f9b5"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setRange</b> (iadxl3xx_range_t range)</td></tr>
+<tr class="separator:a905f1c5c9937fd5d7c6891e5a634f9b5 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60cc955e1bbfcab33a53e181c3f724da inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a60cc955e1bbfcab33a53e181c3f724da"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setRange</b> (uint8_t range)</td></tr>
+<tr class="separator:a60cc955e1bbfcab33a53e181c3f724da inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8497ab63c0be9c4a8a898822929008 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ada8497ab63c0be9c4a8a898822929008"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getRange</b> ()</td></tr>
+<tr class="separator:ada8497ab63c0be9c4a8a898822929008 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6999f57ca123e130f35907a5d498ebd inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ac6999f57ca123e130f35907a5d498ebd"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setFilter</b> (iadxl3xx_filter_t filter)</td></tr>
+<tr class="separator:ac6999f57ca123e130f35907a5d498ebd inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed1f5061cbe32fd5fbb1a428948c9f3 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a8ed1f5061cbe32fd5fbb1a428948c9f3"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>setFilter</b> (uint8_t filter)</td></tr>
+<tr class="separator:a8ed1f5061cbe32fd5fbb1a428948c9f3 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb4267dcddca9d3782b8ad7e18c71d91 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="afb4267dcddca9d3782b8ad7e18c71d91"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getFilter</b> ()</td></tr>
+<tr class="separator:afb4267dcddca9d3782b8ad7e18c71d91 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ff178ebab4a167e1c15ff9379f1836 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a92ff178ebab4a167e1c15ff9379f1836"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>getHPF</b> ()</td></tr>
+<tr class="separator:a92ff178ebab4a167e1c15ff9379f1836 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed8817552ca44d9a4422acad6e02027 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a8ed8817552ca44d9a4422acad6e02027"></a>
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>getODR</b> ()</td></tr>
+<tr class="separator:a8ed8817552ca44d9a4422acad6e02027 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94a2ac87d066e6b1d77d50fb638535c inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ac94a2ac87d066e6b1d77d50fb638535c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setMode</b> (bool isMeasurmentMode)</td></tr>
+<tr class="separator:ac94a2ac87d066e6b1d77d50fb638535c inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2416d21f7169b8ddfe6ac62ddc6eeb51 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a2416d21f7169b8ddfe6ac62ddc6eeb51"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAnalogDeviceID</b> ()</td></tr>
+<tr class="separator:a2416d21f7169b8ddfe6ac62ddc6eeb51 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac93e0acd1c08551401b2e6b3ccd670d7 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ac93e0acd1c08551401b2e6b3ccd670d7"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDeviceMEMSID</b> ()</td></tr>
+<tr class="separator:ac93e0acd1c08551401b2e6b3ccd670d7 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11cf309bada627119ca32f47609380b inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ad11cf309bada627119ca32f47609380b"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDeviceID</b> ()</td></tr>
+<tr class="separator:ad11cf309bada627119ca32f47609380b inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494c89950571b8a8c6826f732778a74a inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a494c89950571b8a8c6826f732778a74a"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMaskRevision</b> ()</td></tr>
+<tr class="separator:a494c89950571b8a8c6826f732778a74a inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c1ac739d850cfc859e36e14f2b72c5a inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a5c1ac739d850cfc859e36e14f2b72c5a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>writeRegister</b> (const ADXL3XX_REGISTERS &amp;reg, uint8_t value)</td></tr>
+<tr class="separator:a5c1ac739d850cfc859e36e14f2b72c5a inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf245f4fb00f74efe5424760f1f13aba inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="adf245f4fb00f74efe5424760f1f13aba"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>readRegister</b> (const ADXL3XX_REGISTERS &amp;reg)</td></tr>
+<tr class="separator:adf245f4fb00f74efe5424760f1f13aba inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1edcb6f6466076bcda0623ed841f38 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="afe1edcb6f6466076bcda0623ed841f38"></a>
+virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>read20</b> (const ADXL3XX_REGISTERS &amp;reg)</td></tr>
+<tr class="separator:afe1edcb6f6466076bcda0623ed841f38 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85afea21c7d716ebea619921b8e2169c inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a85afea21c7d716ebea619921b8e2169c"></a>
+virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> ()</td></tr>
+<tr class="separator:a85afea21c7d716ebea619921b8e2169c inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed55d3be05245a901bd6c611fec4c4a inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a7ed55d3be05245a901bd6c611fec4c4a"></a>
+virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getY</b> ()</td></tr>
+<tr class="separator:a7ed55d3be05245a901bd6c611fec4c4a inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155ba90e5e3ac69c1cb8247226aadc48 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a155ba90e5e3ac69c1cb8247226aadc48"></a>
+virtual int32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getZ</b> ()</td></tr>
+<tr class="separator:a155ba90e5e3ac69c1cb8247226aadc48 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada5b72a676c4ea6ba6f623e2bf816547 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIADXL3XX.html#ada5b72a676c4ea6ba6f623e2bf816547">getXYZ</a> (int32_t &amp;x, int32_t &amp;y, int32_t &amp;z)</td></tr>
+<tr class="memdesc:ada5b72a676c4ea6ba6f623e2bf816547 inherit pub_methods_classIADXL3XX"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Acceleration on X,Y,Z axis.  <a href="classIADXL3XX.html#ada5b72a676c4ea6ba6f623e2bf816547">More...</a><br /></td></tr>
+<tr class="separator:ada5b72a676c4ea6ba6f623e2bf816547 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1af79e015f8988d30d5a1dedce67295 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ad1af79e015f8988d30d5a1dedce67295"></a>
+virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getFIFOEntries</b> ()</td></tr>
+<tr class="separator:ad1af79e015f8988d30d5a1dedce67295 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba385b89a7d6db6b6c7607286e196269 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="aba385b89a7d6db6b6c7607286e196269"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>getFIFOData</b> (int32_t &amp;x, int32_t &amp;y, int32_t &amp;z)</td></tr>
+<tr class="separator:aba385b89a7d6db6b6c7607286e196269 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bf159443533c6116ed052e699edf8d inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a20bf159443533c6116ed052e699edf8d"></a>
+virtual int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAllFIFOData</b> (int32_t data[])</td></tr>
+<tr class="separator:a20bf159443533c6116ed052e699edf8d inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82e3eaa6152ccce29f3f2e203ea21500 inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a82e3eaa6152ccce29f3f2e203ea21500"></a>
+virtual int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAllFIFOData</b> (int32_t x[], int32_t y[], int32_t z[])</td></tr>
+<tr class="separator:a82e3eaa6152ccce29f3f2e203ea21500 inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5081560d675e4ecf5f52071763993e1a inherit pub_methods_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a5081560d675e4ecf5f52071763993e1a"></a>
+virtual int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getNFIFOData</b> (int8_t n, int32_t x[], int32_t y[], int32_t z[])</td></tr>
+<tr class="separator:a5081560d675e4ecf5f52071763993e1a inherit pub_methods_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a6d7b77f9818d872221be8bc3ce88341f"><td class="memItemLeft" align="right" valign="top"><a id="a6d7b77f9818d872221be8bc3ce88341f"></a>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classIADXL3XX"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIADXL3XX')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classIADXL3XX.html">IADXL3XX</a></td></tr>
+<tr class="memitem:a77b751348db6ad80b21ceb8bf03ec8c3 inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a77b751348db6ad80b21ceb8bf03ec8c3"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_i2caddr</b></td></tr>
-<tr class="separator:a6d7b77f9818d872221be8bc3ce88341f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b42404e95145c333da91a67888ad947"><td class="memItemLeft" align="right" valign="top"><a id="a7b42404e95145c333da91a67888ad947"></a>
-adxl357_range_t&#160;</td><td class="memItemRight" valign="bottom"><b>_i2c_speed</b></td></tr>
-<tr class="separator:a7b42404e95145c333da91a67888ad947"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7a16e125d90a1420b289245f8654331"><td class="memItemLeft" align="right" valign="top"><a id="ad7a16e125d90a1420b289245f8654331"></a>
-adxl357_range_t&#160;</td><td class="memItemRight" valign="bottom"><b>_int_pol</b></td></tr>
-<tr class="separator:ad7a16e125d90a1420b289245f8654331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9898351cda6c8d176a91233cd1872e24"><td class="memItemLeft" align="right" valign="top"><a id="a9898351cda6c8d176a91233cd1872e24"></a>
-adxl357_range_t&#160;</td><td class="memItemRight" valign="bottom"><b>_range</b></td></tr>
-<tr class="separator:a9898351cda6c8d176a91233cd1872e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae4af1b93a40f6d8c444590b3253f3ce"><td class="memItemLeft" align="right" valign="top"><a id="aae4af1b93a40f6d8c444590b3253f3ce"></a>
-adxl357_power_ctl_t&#160;</td><td class="memItemRight" valign="bottom"><b>_drdy_off</b></td></tr>
-<tr class="separator:aae4af1b93a40f6d8c444590b3253f3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d24920ca92e5df0593604f9e578f09d"><td class="memItemLeft" align="right" valign="top"><a id="a7d24920ca92e5df0593604f9e578f09d"></a>
-adxl357_power_ctl_t&#160;</td><td class="memItemRight" valign="bottom"><b>_temp_off</b></td></tr>
-<tr class="separator:a7d24920ca92e5df0593604f9e578f09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49043e660254c4dfcc0e62d8d098a903"><td class="memItemLeft" align="right" valign="top"><a id="a49043e660254c4dfcc0e62d8d098a903"></a>
-adxl357_power_ctl_t&#160;</td><td class="memItemRight" valign="bottom"><b>_standby</b></td></tr>
-<tr class="separator:a49043e660254c4dfcc0e62d8d098a903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a77b751348db6ad80b21ceb8bf03ec8c3 inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370b515b3975e408b22832bdd36f1698 inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a370b515b3975e408b22832bdd36f1698"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_i2c_speed</b></td></tr>
+<tr class="separator:a370b515b3975e408b22832bdd36f1698 inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeab12990a55cf42fba1e0a451aa0c42 inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="aaeab12990a55cf42fba1e0a451aa0c42"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_int_pol</b></td></tr>
+<tr class="separator:aaeab12990a55cf42fba1e0a451aa0c42 inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84eb56a87e7096267891b0846282fcf inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="ac84eb56a87e7096267891b0846282fcf"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_range</b></td></tr>
+<tr class="separator:ac84eb56a87e7096267891b0846282fcf inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9593d4c56fb293d72f4d06b4f519a43b inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a9593d4c56fb293d72f4d06b4f519a43b"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_drdy_off</b></td></tr>
+<tr class="separator:a9593d4c56fb293d72f4d06b4f519a43b inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a085d5a420f92e84d0dc148160247c599 inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="a085d5a420f92e84d0dc148160247c599"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_temp_off</b></td></tr>
+<tr class="separator:a085d5a420f92e84d0dc148160247c599 inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d1ec91b6417dada3bded9c8e9cbd2b inherit pro_attribs_classIADXL3XX"><td class="memItemLeft" align="right" valign="top"><a id="af4d1ec91b6417dada3bded9c8e9cbd2b"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_standby</b></td></tr>
+<tr class="separator:af4d1ec91b6417dada3bded9c8e9cbd2b inherit pro_attribs_classIADXL3XX"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classADXL357.html" title="ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor.">ADXL357</a> class to initialize, sample data, and etc. of the <a class="el" href="classADXL357.html" title="ADXL357 class to initialize, sample data, and etc. of the ADXL357 Sensor.">ADXL357</a> Sensor. </p>
@@ -235,54 +266,6 @@ adxl357_power_ctl_t&#160;</td><td class="memItemRight" valign="bottom"><b>_stand
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a264b070dad0dccb5e5324371ed321eac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a264b070dad0dccb5e5324371ed321eac">&#9670;&nbsp;</a></span>getXYZ()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ADXL357::getXYZ </td>
-          <td>(</td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Acceleration on X,Y,Z axis. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>the output of x. </td></tr>
-    <tr><td class="paramname">y</td><td>the output of y. </td></tr>
-    <tr><td class="paramname">z</td><td>the output of z. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true: Successful. </dd>
-<dd>
-false: failed. </dd></dl>
 
 </div>
 </div>

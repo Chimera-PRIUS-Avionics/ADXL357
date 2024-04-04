@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scale_5ft_4',['scale_t',['../structADXL357_1_1scale__t.html',1,'ADXL357']]]
+  ['iadxl3xx_7',['IADXL3XX',['../classIADXL3XX.html',1,'']]]
 ];
